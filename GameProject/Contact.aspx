@@ -16,7 +16,7 @@ File Description: contact page --%>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <!--<div class="col-md-4">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Contact Info</h3>
@@ -32,8 +32,8 @@ File Description: contact page --%>
                     </div>
                 </div>
 
-            </div>
-            <div class="col-md-6">
+            </div>-->
+            <div class="col-md-offset-2 col-md-6">
                 <div class="form-group">
                     <label class="control-label" for="FirstNameTextBox">First Name:</label>
                     <asp:TextBox runat="server" CssClass="form-control" ID="FirstNameTextBox" placeholder="First Name" required="true"></asp:TextBox>

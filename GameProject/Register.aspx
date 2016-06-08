@@ -6,7 +6,7 @@ Website Name: http://200288068-project.azurewebsites.net/
 Version: 0.0.1 - Initial Version
 File Description: register page --%>
 
-<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="GameProject.Register" %>
+<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="GameProject.Register" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <p>Register Page Goes Here!</p>
 </asp:Content>

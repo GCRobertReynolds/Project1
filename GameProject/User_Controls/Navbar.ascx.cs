@@ -44,6 +44,24 @@ namespace GameProject
                 case "Home Page":
                     home.Attributes.Add("class", "active");
                     break;
+                case "Register":
+                    register.Attributes.Add("class", "active");
+                    break;
+                case "Login":
+                    login.Attributes.Add("class", "active");
+                    break;
+                case "Entry":
+                    entry.Attributes.Add("class", "active");
+                    break;
+                case "Tracking":
+                    tracking.Attributes.Add("class", "active");
+                    break;
+                case "Statistics":
+                    statistics.Attributes.Add("class", "active");
+                    break;
+                case "Calendar":
+                    calendar.Attributes.Add("class", "active");
+                    break;
                 case "Contact":
                     contact.Attributes.Add("class", "active");
                     break;

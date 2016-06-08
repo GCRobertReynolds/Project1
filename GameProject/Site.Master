@@ -1,4 +1,12 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="GameProject.Site" %>
+﻿<%-- File Name: Site.Master
+Author Name: Robert Reynolds
+Student Number: 200288068
+Date Modified: June 8th, 2016
+Website Name: http://200288068-project.azurewebsites.net/
+Version: 0.0.1 - Initial Version
+File Description: standard behaviour (layout) for all pages in application --%>
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="GameProject.Site" %>
 <%@ Register Src="~/User_Controls/Navbar.ascx"  TagName="NavBar" TagPrefix="bs3" %>
 <!DOCTYPE html>
 

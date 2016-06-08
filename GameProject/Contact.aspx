@@ -1,4 +1,12 @@
-﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="GameProject.Contact" %>
+﻿<%-- File Name: Contact.aspx
+Author Name: Robert Reynolds
+Student Number: 200288068
+Date Modified: June 8th, 2016
+Website Name: http://200288068-project.azurewebsites.net/
+Version: 0.0.1 - Initial Version
+File Description: contact page --%>
+
+<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="GameProject.Contact" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">

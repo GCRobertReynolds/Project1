@@ -1,4 +1,12 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Navbar.ascx.cs" Inherits="GameProject.Navbar" %>
+﻿<%-- File Name: Navbar.ascx
+Author Name: Robert Reynolds
+Student Number: 200288068
+Date Modified: June 8th, 2016
+Website Name: http://200288068-project.azurewebsites.net/
+Version: 0.0.1 - Initial Version
+File Description: navbar user control --%>
+
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Navbar.ascx.cs" Inherits="GameProject.Navbar" %>
 <nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->

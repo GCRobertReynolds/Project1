@@ -1,4 +1,4 @@
-﻿<%-- File Name: Navbar.ascx
+﻿ <%-- File Name: Navbar.ascx
 Author Name: Robert Reynolds
 Student Number: 200288068
 Date Modified: June 8th, 2016

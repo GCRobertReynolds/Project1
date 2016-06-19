@@ -2,10 +2,10 @@
  * File Name: Jumbrotron.ascx.cs
  * Author Name: Robert Reynolds
  * Student Number: 200288068
- * Date Modified: June 8th, 2016
+ * Date Modified: June 19th, 2016
  * Website Name: http://200288068-project.azurewebsites.net/
- * Version: 0.0.1 - Initial Version
- * File Description: Code behind file for jumbrotron user control
+ * Version: 0.0.2 - Updated SetActivePage Method
+ * File Description: Code behind file for navbar user control
  */
 
 using System;

@@ -15,6 +15,7 @@ File Description: tracking page --%>
             <div class="col-md-offset-2 col-md-8">
 
                 <h1>Games List</h1>
+                <a href="Entry.aspx" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add Game</a>
                 <asp:GridView runat="server" CssClass="table table-bordered table-striped table-hover" ID="GamesGridView" 
                     AutoGenerateColumns="false">
 

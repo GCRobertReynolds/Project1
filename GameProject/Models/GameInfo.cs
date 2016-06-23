@@ -14,7 +14,6 @@ namespace GameProject.Models
     
     public partial class GameInfo
     {
-        public int GameID { get; set; }
         public string GameTitle { get; set; }
         public string GameType { get; set; }
         public System.DateTime GameDate { get; set; }

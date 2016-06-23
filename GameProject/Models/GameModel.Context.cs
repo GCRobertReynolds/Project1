@@ -25,7 +25,7 @@ namespace GameProject.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<GameInfo> GameInfoes { get; set; }
         public virtual DbSet<PlayerInfo> PlayerInfoes { get; set; }
+        public virtual DbSet<GameInfo> GameInfoes { get; set; }
     }
 }

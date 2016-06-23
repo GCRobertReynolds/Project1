@@ -20,7 +20,7 @@ File Description: tracking page --%>
                     AutoGenerateColumns="false">
 
                     <Columns>
-                        <asp:BoundField DataField="GameID" HeaderText="Game ID" Visible="true" />
+                        <%--<asp:BoundField DataField="GameID" HeaderText="Game ID" Visible="true" />--%>
                         <asp:BoundField DataField="GameTitle" HeaderText="Game Title" Visible="true" />
                         <asp:BoundField DataField="GameType" HeaderText="Game Type" Visible="true" />
                         <asp:BoundField DataField="GameDate" HeaderText="Date" Visible="true" 

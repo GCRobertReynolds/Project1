@@ -14,10 +14,10 @@ File Description: entry page --%>
                 <h1>Game Details</h1>
                 <h5>All Fields are Required!</h5>
                 <br />
-                <div class="form-group">
+                <%-- %><div class="form-group">
                     <label class="control-label" for="GameIDTextBox">Game ID</label>
                     <asp:TextBox runat="server" CssClass="form-control" id="GameIDTextBox" placeholder="Game ID" required="true"></asp:TextBox>
-                </div>
+                </div>--%>
                 <div class="form-group">
                     <label class="control-label" for="GameTitleTextBox">Game Title</label>
                     <asp:TextBox runat="server" CssClass="form-control" id="GameTitleTextBox" placeholder="Game Title" required="true"></asp:TextBox>

@@ -5,11 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="GameModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view '200288068-COMP2007.dbo.GameInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GameInfo">
           <Key>
-            <PropertyRef Name="GameID" />
+            <PropertyRef Name="GameTitle" />
+            <PropertyRef Name="GameType" />
+            <PropertyRef Name="GameDate" />
+            <PropertyRef Name="GameTurns" />
+            <PropertyRef Name="GameServer" />
+            <PropertyRef Name="GameSpectators" />
           </Key>
-          <Property Name="GameID" Type="int" Nullable="false" />
           <Property Name="GameTitle" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="GameType" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="GameDate" Type="date" Nullable="false" />
@@ -25,26 +31,15 @@
           <Property Name="PlayerName" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="GameModelStoreContainer">
-          <EntitySet Name="GameInfo" EntityType="Self.GameInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlayerInfo" EntityType="Self.PlayerInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GameInfo" EntityType="Self.GameInfo" store:Type="Tables" Schema="dbo">
+          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GameModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="GameInfo">
-          <Key>
-            <PropertyRef Name="GameID" />
-          </Key>
-          <Property Name="GameID" Type="Int32" Nullable="false" />
-          <Property Name="GameTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="GameType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="GameDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="GameTurns" Type="Int32" Nullable="false" />
-          <Property Name="GameServer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="GameSpectators" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="PlayerInfo">
           <Key>
             <PropertyRef Name="PlayerID" />
@@ -52,9 +47,25 @@
           <Property Name="PlayerID" Type="Int32" Nullable="false" />
           <Property Name="PlayerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="GameInfo">
+          <Key>
+            <PropertyRef Name="GameTitle" />
+            <PropertyRef Name="GameType" />
+            <PropertyRef Name="GameDate" />
+            <PropertyRef Name="GameTurns" />
+            <PropertyRef Name="GameServer" />
+            <PropertyRef Name="GameSpectators" />
+          </Key>
+          <Property Name="GameTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GameType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GameDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GameTurns" Type="Int32" Nullable="false" />
+          <Property Name="GameServer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GameSpectators" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="DefaultConnection" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="GameInfoes" EntityType="Self.GameInfo" />
           <EntitySet Name="PlayerInfoes" EntityType="Self.PlayerInfo" />
+          <EntitySet Name="GameInfoes" EntityType="Self.GameInfo" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -62,24 +73,23 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="GameModelStoreContainer" CdmEntityContainer="DefaultConnection">
+          <EntitySetMapping Name="PlayerInfoes">
+            <EntityTypeMapping TypeName="GameModel.PlayerInfo">
+              <MappingFragment StoreEntitySet="PlayerInfo">
+                <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+                <ScalarProperty Name="PlayerName" ColumnName="PlayerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="GameInfoes">
             <EntityTypeMapping TypeName="GameModel.GameInfo">
               <MappingFragment StoreEntitySet="GameInfo">
-                <ScalarProperty Name="GameID" ColumnName="GameID" />
                 <ScalarProperty Name="GameTitle" ColumnName="GameTitle" />
                 <ScalarProperty Name="GameType" ColumnName="GameType" />
                 <ScalarProperty Name="GameDate" ColumnName="GameDate" />
                 <ScalarProperty Name="GameTurns" ColumnName="GameTurns" />
                 <ScalarProperty Name="GameServer" ColumnName="GameServer" />
                 <ScalarProperty Name="GameSpectators" ColumnName="GameSpectators" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PlayerInfoes">
-            <EntityTypeMapping TypeName="GameModel.PlayerInfo">
-              <MappingFragment StoreEntitySet="PlayerInfo">
-                <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
-                <ScalarProperty Name="PlayerName" ColumnName="PlayerName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

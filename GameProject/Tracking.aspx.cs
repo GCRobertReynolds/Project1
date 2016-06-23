@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 //Using statements that are required to connect to Entity Framework Database
 using GameProject.Models;
 using System.Web.ModelBinding;
+using System.Linq.Dynamic;
 
 namespace GameProject
 {
@@ -17,6 +18,9 @@ namespace GameProject
             //If loading the page for the first time then populate GameGridView
             if(!IsPostBack)
             {
+                Session["SortColumn"] = "GameType"; //Default sort column
+                Session["SortDirection"] = "ASC";
+
                 //Get the game data
                 this.GetGames();
             }
@@ -37,12 +41,13 @@ namespace GameProject
             //Connect to Entity Framework
             using (DefaultConnection db = new DefaultConnection())
             {
+                string SortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
                 //Query the Games Table using Entity Framework and LINQ
                 var Games = (from allGames in db.GameInfoes
                              select allGames);
 
                 //Bind the result to the GridView
-                GamesGridView.DataSource = Games.ToList();
+                GamesGridView.DataSource = Games.AsQueryable().OrderBy(SortString).ToList();
                 GamesGridView.DataBind(); //Creates 1-way Data Binding
             }
         }
@@ -111,7 +116,7 @@ namespace GameProject
         /**
          * 
          * <summary>
-         * 
+         * This event handler sets the page size 
          * </summary>
          * 
          * @method PageSizeDropDownList_SelectedIndexChanged
@@ -127,6 +132,70 @@ namespace GameProject
 
             //Refresh the GridView
             this.GetGames();
+        }
+
+        /**
+         * 
+         * <summary>
+         *  
+         * </summary>
+         * 
+         * @method GamesGridView_Sorting
+         * @param {object} sender
+         * @param {GridViewSortEventArgs} e
+         * @returns {void}
+         * 
+         */
+        protected void GamesGridView_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            //Get the column to sort by
+            Session["SortColumn"] = e.SortExpression;
+
+            //Refresh the GridView
+            this.GetGames();
+
+            //Toggle the direction
+            Session["SortDirection"] = Session["SortDirection"].ToString() == "ASC" ? "DESC" : "ASC";
+        }
+
+        /**
+        * 
+        * <summary>
+        *  
+        * </summary>
+        * 
+        * @method GamesGridView_RowDataBound
+        * @param {object} sender
+        * @param {GridViewRowEventArgs} e
+        * @returns {void}
+        * 
+        */
+        protected void GamesGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if(IsPostBack)
+            {
+                if(e.Row.RowType == DataControlRowType.Header) //If header row has been clicked
+                {
+                    LinkButton linkbutton = new LinkButton();
+
+                    for (int index = 0; index < GamesGridView.Columns.Count -1; index++)
+                    {
+                        if (GamesGridView.Columns[index].SortExpression == Session["SortColumn"].ToString())
+                        {
+                            if(Session["SortDirection"].ToString() == "ASC")
+                            {
+                                linkbutton.Text = " <i class='fa fa-caret-up fa-lg'></i>";
+                            }
+                            else
+                            {
+                                linkbutton.Text = " <i class='fa fa-caret-down fa-lg'></i>";
+                            }
+
+                            e.Row.Cells[index].Controls.Add(linkbutton);
+                        }
+                    }
+                }
+            }
         }
     }
 }

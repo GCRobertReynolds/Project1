@@ -14,9 +14,38 @@ namespace GameProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if((!IsPostBack) && (Request.QueryString.Count > 0))
+            {
+                this.GetGame();
+            }
         }
 
+        protected void GetGame()
+        {
+            //Populate the form with existing data from the database
+            //int GameID = Convert.ToInt32(Request.QueryString["GameID"]):
+            string GameTitle = Request.QueryString["GameTitle"];
+
+            //Connect to the Entity Framework Database
+            using (DefaultConnection db = new DefaultConnection())
+            {
+                //Populate a game object instance with the GameID from the URL Param
+                GameInfo updatedGame = (from GameInfo in db.GameInfoes
+                                        where GameInfo.GameTitle == GameTitle
+                                        select GameInfo).FirstOrDefault();
+
+                //Map the game properties to the form controls
+                if(updatedGame != null)
+                {
+                    GameTitleTextBox.Text = updatedGame.GameTitle;
+                    GameTypeTextBox.Text = updatedGame.GameType;
+                    GameDateTextBox.Text = updatedGame.GameDate.ToString("yyyy-MM-dd");
+                    GameTurnsTextBox.Text = Convert.ToString(updatedGame.GameTurns);
+                    GameServerTextBox.Text = updatedGame.GameServer;
+                    GameSpectatorsTextBox.Text = Convert.ToString(updatedGame.GameSpectators);
+                }
+            }
+        }
         /**
          * 
          * <summary>
@@ -51,6 +80,18 @@ namespace GameProject
                 //and save a new record
                 GameInfo newGame = new GameInfo();
 
+                //int GameID = 0;
+                //if(Request.QueryString.Count > 0) //our URL has an ID in it
+                //{
+                    //Get the ID from the URL 
+                    //GameID = Convert.ToInt32(Request.QueryString["GameID"]);
+
+                    //Get the current game from the Entity Framework Database
+                    //newGame = (from GameInfo in db.GameInfoes
+                               //where GameInfo.GameID == GameID
+                               //select GameInfo).FirstOrDefault();
+                //}
+
                 //Add data to the new game record
                 //newGame.GameID = Convert.ToInt32(GameIDTextBox.Text);
                 newGame.GameTitle = GameTitleTextBox.Text;
@@ -61,7 +102,11 @@ namespace GameProject
                 newGame.GameSpectators = Convert.ToInt32(GameSpectatorsTextBox.Text);
 
                 //Use LINQ/ADO.NET to insert new game into the database
-                db.GameInfoes.Add(newGame);
+
+                //if(GameID == 0)
+                //{
+                //    db.GameInfoes.Add(newGame);
+                //}
 
                 //Save our changes
                 db.SaveChanges();

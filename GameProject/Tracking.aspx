@@ -30,17 +30,20 @@ File Description: tracking page --%>
                 
                 <asp:GridView runat="server" CssClass="table table-bordered table-striped table-hover" ID="GamesGridView" 
                     AutoGenerateColumns="false" DataKeyNames="GameTitle" OnRowDeleting="GamesGridView_RowDeleting" AllowPaging="true" 
-                    PageSize="3" OnPageIndexChanging="GamesGridView_PageIndexChanging" >
+                    PageSize="3" OnPageIndexChanging="GamesGridView_PageIndexChanging" AllowSorting="true" OnSorting="GamesGridView_Sorting"
+                    OnRowDataBound="GamesGridView_RowDataBound" >
 
                     <Columns>
                         <%--<asp:BoundField DataField="GameID" HeaderText="Game ID" Visible="true" />--%>
-                        <asp:BoundField DataField="GameTitle" HeaderText="Game Title" Visible="true" />
-                        <asp:BoundField DataField="GameType" HeaderText="Game Type" Visible="true" />
+                        <asp:BoundField DataField="GameTitle" HeaderText="Game Title" Visible="true" SortExpression="GameTitle"/>
+                        <asp:BoundField DataField="GameType" HeaderText="Game Type" Visible="true" SortExpression="GameType"/>
                         <asp:BoundField DataField="GameDate" HeaderText="Date" Visible="true" 
-                            DataFormatString="{0:MMM dd, yyyy}" />
-                        <asp:BoundField DataField="GameTurns" HeaderText="Turns" Visible="true" />
-                        <asp:BoundField DataField="GameServer" HeaderText="Game Server" Visible="true" />
-                        <asp:BoundField DataField="GameSpectators" HeaderText="Spectators" Visible="true" />
+                            DataFormatString="{0:MMM dd, yyyy}" SortExpression="GameDate"/>
+                        <asp:BoundField DataField="GameTurns" HeaderText="Turns" Visible="true" SortExpression="GameTurns"/>
+                        <asp:BoundField DataField="GameServer" HeaderText="Game Server" Visible="true" SortExpression="GameServer"/>
+                        <asp:BoundField DataField="GameSpectators" HeaderText="Spectators" Visible="true" SortExpression="GameSpectators"/>
+                        <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" 
+                            NavigateUrl="~/Statistics.aspx" ControlStyle-CssClass="btn btn-primary btn-sm" runat="server" DataNavigateUrlFields="GameTitle" DataNavigateUrlFormatString="Entry.aspx?GameTitle={0}" />
                         <asp:CommandField HeaderText="Delete" DeleteText="<i class='fa fa-trash-o fa-lg'></i> Delete" ShowDeleteButton="true" ButtonType="Link"
                             ControlStyle-CssClass="btn btn-danger btn-sm" />
                     </Columns>

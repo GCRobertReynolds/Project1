@@ -59,9 +59,9 @@ namespace GameProject
             using (DefaultConnection db = new DefaultConnection())
             {
                 //Create object of game class and store the query string inside of it
-                GameInfo deletedGame = (from GameInfo in db.GameInfoes
-                                        where GameInfo.GameID == GameID
-                                        select GameInfo).FirstorDefault();
+                //GameInfo deletedGame = (from GameInfo in db.GameInfoes
+                                        //where GameInfo.GameID == GameID;
+                                        //select GameInfo).FirstorDefault();
             }
         }
     }

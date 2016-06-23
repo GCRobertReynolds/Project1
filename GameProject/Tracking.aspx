@@ -17,7 +17,7 @@ File Description: tracking page --%>
                 <h1>Games List</h1>
                 <a href="Entry.aspx" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add Game</a>
                 <asp:GridView runat="server" CssClass="table table-bordered table-striped table-hover" ID="GamesGridView" 
-                    AutoGenerateColumns="false">
+                    AutoGenerateColumns="false" DataKeyNames="GameID" OnRowDeleting="GamesGridView_RowDeleting" >
 
                     <Columns>
                         <%--<asp:BoundField DataField="GameID" HeaderText="Game ID" Visible="true" />--%>
@@ -28,6 +28,8 @@ File Description: tracking page --%>
                         <asp:BoundField DataField="GameTurns" HeaderText="Turns" Visible="true" />
                         <asp:BoundField DataField="GameServer" HeaderText="Game Server" Visible="true" />
                         <asp:BoundField DataField="GameSpectators" HeaderText="Spectators" Visible="true" />
+                        <asp:CommandField HeaderText="Delete" DeleteText="<i class='fa fa-trash-o fa-lg'></i> Delete" ShowDeleteButton="true" ButtonType="Link"
+                            ControlStyle-CssClass="btn btn-danger btn-sm" />
                     </Columns>
 
                 </asp:GridView>

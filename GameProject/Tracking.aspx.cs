@@ -46,5 +46,23 @@ namespace GameProject
                 GamesGridView.DataBind(); //Creates 1-way Data Binding
             }
         }
+
+        protected void GamesGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            //Store which row was clicked
+            int selectedRow = e.RowIndex;
+
+            //Get the selected GameID using the Grid's DataKey collection
+            int GameID = Convert.ToInt32(GamesGridView.DataKeys[selectedRow].Values["GameID"]);
+
+            //Use the Entity Framework to find the selected game in the database and remove it
+            using (DefaultConnection db = new DefaultConnection())
+            {
+                //Create object of game class and store the query string inside of it
+                GameInfo deletedGame = (from GameInfo in db.GameInfoes
+                                        where GameInfo.GameID == GameID
+                                        select GameInfo).FirstorDefault();
+            }
+        }
     }
 }

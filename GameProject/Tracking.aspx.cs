@@ -107,5 +107,26 @@ namespace GameProject
             //Refresh the GridView
             this.GetGames();
         }
+
+        /**
+         * 
+         * <summary>
+         * 
+         * </summary>
+         * 
+         * @method PageSizeDropDownList_SelectedIndexChanged
+         * @param {object} sender
+         * @param {EventArgs} e
+         * @returns {void}
+         * 
+         */
+        protected void PageSizeDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Set the new page size
+            GamesGridView.PageSize = Convert.ToInt32(PageSizeDropDownList.SelectedValue);
+
+            //Refresh the GridView
+            this.GetGames();
+        }
     }
 }

@@ -16,6 +16,18 @@ File Description: tracking page --%>
 
                 <h1>Games List</h1>
                 <a href="Entry.aspx" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add Game</a>
+
+                <div>
+                    <label for="PageSizeDropDownList">Records Per Page: </label>
+                    <asp:DropDownList ID="PageSizeDropDownList" runat="server" AutoPostBack="true" 
+                        CssClass="btn btn-default btn-sm dropdown-toggle" OnSelectedIndexChanged="PageSizeDropDownList_SelectedIndexChanged">
+                        <asp:ListItem Text="3" Value="3"/>
+                        <asp:ListItem Text="5" Value="5"/>
+                        <asp:ListItem Text="10" Value="10"/>
+                        <asp:ListItem Text="All" Value="10000"/>
+                    </asp:DropDownList>
+                </div>
+                
                 <asp:GridView runat="server" CssClass="table table-bordered table-striped table-hover" ID="GamesGridView" 
                     AutoGenerateColumns="false" DataKeyNames="GameTitle" OnRowDeleting="GamesGridView_RowDeleting" AllowPaging="true" 
                     PageSize="3" OnPageIndexChanging="GamesGridView_PageIndexChanging" >

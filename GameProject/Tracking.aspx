@@ -17,7 +17,8 @@ File Description: tracking page --%>
                 <h1>Games List</h1>
                 <a href="Entry.aspx" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add Game</a>
                 <asp:GridView runat="server" CssClass="table table-bordered table-striped table-hover" ID="GamesGridView" 
-                    AutoGenerateColumns="false" DataKeyNames="GameTitle" OnRowDeleting="GamesGridView_RowDeleting" >
+                    AutoGenerateColumns="false" DataKeyNames="GameTitle" OnRowDeleting="GamesGridView_RowDeleting" AllowPaging="true" 
+                    PageSize="3" OnPageIndexChanging="GamesGridView_PageIndexChanging" >
 
                     <Columns>
                         <%--<asp:BoundField DataField="GameID" HeaderText="Game ID" Visible="true" />--%>

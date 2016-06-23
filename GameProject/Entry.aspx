@@ -28,7 +28,9 @@ File Description: entry page --%>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="GameDateTextBox">Game Date</label>
-                    <asp:TextBox runat="server" TextMode="Date" CssClass="form-control" id="GameDateTextBox" placeholder="Game Date" required="true"></asp:TextBox>
+                    <asp:TextBox runat="server" TextMode="Date" CssClass="form-control" id="GameDateTextBox" placeholder="Game Date Format: mm/dd/yyyy" required="true"></asp:TextBox>
+                    <asp:RangeValidator ID="DateRangeValidator" runat="server" ErrorMessage="Invalid Date! Format: mm/dd/yyyy" 
+                        ControlToValidate="GameDateTextBox" MinimumValue="01/01/2000" MaximumValue="01/01/2999" Type="Date" Display="Dynamic" BackColor="Red" ForeColor="White" Font-Size="Large"></asp:RangeValidator>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="GameTurnsTextBox">Game Turns</label>

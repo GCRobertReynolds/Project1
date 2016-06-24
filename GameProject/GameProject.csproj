@@ -124,14 +124,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Calendar.aspx" />
+    <Content Include="Games\Calendar.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Entry.aspx" />
+    <Content Include="Games\Entry.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Games\MainMenu.aspx" />
     <Content Include="Models\GameModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GameModel.edmx</DependentUpon>
@@ -181,8 +183,8 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="Statistics.aspx" />
-    <Content Include="Tracking.aspx" />
+    <Content Include="Games\Statistics.aspx" />
+    <Content Include="Games\Tracking.aspx" />
     <Content Include="User_Controls\Jumbotron.ascx" />
     <Content Include="User_Controls\Navbar.ascx" />
     <Content Include="Scripts\app.js" />
@@ -196,11 +198,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calendar.aspx.cs">
+    <Compile Include="Games\Calendar.aspx.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Calendar.aspx.designer.cs">
+    <Compile Include="Games\Calendar.aspx.designer.cs">
       <DependentUpon>Calendar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
@@ -217,11 +219,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Entry.aspx.cs">
+    <Compile Include="Games\Entry.aspx.cs">
       <DependentUpon>Entry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Entry.aspx.designer.cs">
+    <Compile Include="Games\Entry.aspx.designer.cs">
       <DependentUpon>Entry.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
@@ -230,6 +232,20 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Games\MainMenu.aspx.cs">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Games\MainMenu.aspx.designer.cs">
+      <DependentUpon>MainMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\GameInfo.cs">
       <DependentUpon>GameModel.tt</DependentUpon>
@@ -259,18 +275,19 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Statistics.aspx.cs">
+    <Compile Include="Startup.cs" />
+    <Compile Include="Games\Statistics.aspx.cs">
       <DependentUpon>Statistics.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Statistics.aspx.designer.cs">
+    <Compile Include="Games\Statistics.aspx.designer.cs">
       <DependentUpon>Statistics.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Tracking.aspx.cs">
+    <Compile Include="Games\Tracking.aspx.cs">
       <DependentUpon>Tracking.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Tracking.aspx.designer.cs">
+    <Compile Include="Games\Tracking.aspx.designer.cs">
       <DependentUpon>Tracking.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\Jumbotron.ascx.cs">

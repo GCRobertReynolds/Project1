@@ -62,7 +62,7 @@ namespace GameProject
         protected void CancelButton_Click(object sender, EventArgs e)
         {
             //Redirect back to Tracking page
-            Response.Redirect("~/Tracking.aspx");
+            Response.Redirect("~/Games/Tracking.aspx");
         }
 
         /**
@@ -113,7 +113,7 @@ namespace GameProject
                 db.SaveChanges();
 
                 //Redirect back to the updated game page
-                Response.Redirect("~/Tracking.aspx");
+                Response.Redirect("~/Games/Tracking.aspx");
             }
         }
     }

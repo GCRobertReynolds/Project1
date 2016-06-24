@@ -15,7 +15,7 @@ File Description: tracking page --%>
             <div class="col-md-offset-2 col-md-8">
 
                 <h1>Games List</h1>
-                <a href="Entry.aspx" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add Game</a>
+                <a href="/Games/Entry.aspx" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add Game</a>
 
                 <div>
                     <label for="PageSizeDropDownList">Records Per Page: </label>
@@ -43,7 +43,7 @@ File Description: tracking page --%>
                         <asp:BoundField DataField="GameServer" HeaderText="Game Server" Visible="true" SortExpression="GameServer"/>
                         <asp:BoundField DataField="GameSpectators" HeaderText="Spectators" Visible="true" SortExpression="GameSpectators"/>
                         <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit" 
-                            NavigateUrl="~/Statistics.aspx" ControlStyle-CssClass="btn btn-primary btn-sm" runat="server" DataNavigateUrlFields="GameTitle" DataNavigateUrlFormatString="Entry.aspx?GameTitle={0}" />
+                            NavigateUrl="~/Games/Statistics.aspx" ControlStyle-CssClass="btn btn-primary btn-sm" runat="server" DataNavigateUrlFields="GameTitle" DataNavigateUrlFormatString="Entry.aspx?GameTitle={0}" />
                         <asp:CommandField HeaderText="Delete" DeleteText="<i class='fa fa-trash-o fa-lg'></i> Delete" ShowDeleteButton="true" ButtonType="Link"
                             ControlStyle-CssClass="btn btn-danger btn-sm" />
                     </Columns>

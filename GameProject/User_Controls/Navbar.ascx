@@ -17,19 +17,25 @@ File Description: navbar user control --%>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="Default.aspx"><i class="fa fa-trophy fa-lg"></i> Sports Scores</a>            
+            <a class="navbar-brand" href="/Default.aspx"><i class="fa fa-trophy fa-lg"></i> Sports Scores</a>            
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">           
             <ul class="nav navbar-nav navbar-right">
-                <li id="home" runat="server"><a href="Default.aspx"><i class="fa fa-home fa-lg"></i> Home</a></li>
-                <li id="register" runat="server"><a href="Register.aspx"><i class="fa fa-user-plus fa-lg"></i> Register</a></li>
-                <li id="login" runat="server"><a href="Login.aspx"><i class="fa fa-sign-in fa-lg"></i> Login</a></li>
-                <li id="entry" runat="server"><a href="Entry.aspx"><i class="fa fa-edit fa-lg"></i> Entry</a></li>
-                <li id="tracking" runat="server"><a href="Tracking.aspx"><i class="fa fa-arrows-alt fa-lg"></i> Tracking</a></li>
-                <li id="statistics" runat="server"><a href="Statistics.aspx"><i class="fa fa-bar-chart fa-lg"></i> Statistics</a></li>
-                <li id="calendar" runat="server"><a href="Calendar.aspx"><i class="fa fa-calendar fa-lg"></i> Calendar</a></li>
-                <li id="contact" runat="server"><a href="Contact.aspx"><i class="fa fa-phone fa-lg"></i> Contact Us</a></li>
+                <li id="home" runat="server"><a href="/Default.aspx"><i class="fa fa-home fa-lg"></i> Home</a></li>
+
+                
+                <li id="register" runat="server"><a href="/Register.aspx"><i class="fa fa-user-plus fa-lg"></i> Register</a></li>
+                <li id="login" runat="server"><a href="/Login.aspx"><i class="fa fa-sign-in fa-lg"></i> Login</a></li>
+
+                <li id="menu" runat="server"><a href="/Games/MainMenu.aspx"><i class="fa fa-map-signs fa-lg"></i> Main Menu</a></li>
+                <li id="entry" runat="server"><a href="/Games/Entry.aspx"><i class="fa fa-edit fa-lg"></i> Entry</a></li>
+                <li id="tracking" runat="server"><a href="/Games/Tracking.aspx"><i class="fa fa-arrows-alt fa-lg"></i> Tracking</a></li>
+                <li id="statistics" runat="server"><a href="/Games/Statistics.aspx"><i class="fa fa-bar-chart fa-lg"></i> Statistics</a></li>
+                <li id="calendar" runat="server"><a href="/Games/Calendar.aspx"><i class="fa fa-calendar fa-lg"></i> Calendar</a></li>
+                <li id="logout" runat="server"><a href="/Logout.aspx"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+
+                <li id="contact" runat="server"><a href="/Contact.aspx"><i class="fa fa-phone fa-lg"></i> Contact Us</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

@@ -65,6 +65,9 @@ namespace GameProject
                 case "Contact":
                     contact.Attributes.Add("class", "active");
                     break;
+                case "GameMenu":
+                    menu.Attributes.Add("class", "active");
+                    break;
             }
         }
     }

@@ -14,6 +14,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+//Required for Identity and OWIN Security
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
 
 namespace GameProject
 {
@@ -27,7 +31,23 @@ namespace GameProject
          */
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetActivePage();
+            if(!IsPostBack)
+            {
+                //Check if a user is logged in
+                if(HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    //Show the Game content area
+                    GamesPlaceHolder.Visible = true;
+                    PublicPlaceHolder.Visible = false;
+                }
+                else
+                {
+                    //Only show Login and Register
+                    GamesPlaceHolder.Visible = false;
+                    PublicPlaceHolder.Visible = true;
+                }
+                SetActivePage();
+            }
         }
 
         /**

@@ -34,7 +34,7 @@ File Description: tracking page --%>
                     OnRowDataBound="GamesGridView_RowDataBound" >
 
                     <Columns>
-                        <%--<asp:BoundField DataField="GameID" HeaderText="Game ID" Visible="true" />--%>
+                        <%--<asp:BoundField DataField="GameID" HeaderText="Game ID" Visible="true" />--%> 
                         <asp:BoundField DataField="GameTitle" HeaderText="Game Title" Visible="true" SortExpression="GameTitle"/>
                         <asp:BoundField DataField="GameType" HeaderText="Game Type" Visible="true" SortExpression="GameType"/>
                         <asp:BoundField DataField="GameDate" HeaderText="Date" Visible="true" 

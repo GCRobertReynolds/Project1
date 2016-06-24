@@ -39,12 +39,18 @@ namespace GameProject
                     //Show the Game content area
                     GamesPlaceHolder.Visible = true;
                     PublicPlaceHolder.Visible = false;
+
+                    if(HttpContext.Current.User.Identity.GetUserName() == "admin")
+                    {
+                        UserPlaceHolder.Visible = true;
+                    }
                 }
                 else
                 {
                     //Only show Login and Register
                     GamesPlaceHolder.Visible = false;
                     PublicPlaceHolder.Visible = true;
+                    UserPlaceHolder.Visible = false;
                 }
                 SetActivePage();
             }
@@ -87,6 +93,9 @@ namespace GameProject
                     break;
                 case "GameMenu":
                     menu.Attributes.Add("class", "active");
+                    break;
+                case "Users":
+                    users.Attributes.Add("class", "active");
                     break;
             }
         }

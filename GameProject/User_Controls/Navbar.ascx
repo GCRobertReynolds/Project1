@@ -27,6 +27,11 @@ File Description: navbar user control --%>
                     <li id="register" runat="server"><a href="/Register.aspx"><i class="fa fa-user-plus fa-lg"></i> Register</a></li>
                     <li id="login" runat="server"><a href="/Login.aspx"><i class="fa fa-sign-in fa-lg"></i> Login</a></li>
                 </asp:PlaceHolder>
+
+                <asp:PlaceHolder ID="UserPlaceHolder" runat="server">
+                    <li id="users" runat="server"><a href="/Admin/Users.aspx"><i class="fa fa-users fa-lg"></i> Users</a></li>
+                </asp:PlaceHolder>
+
                 <asp:PlaceHolder ID="GamesPlaceHolder" runat="server">
                     <li id="menu" runat="server"><a href="/Games/MainMenu.aspx"><i class="fa fa-map-signs fa-lg"></i> Main Menu</a></li>
                     <li id="entry" runat="server"><a href="/Games/Entry.aspx"><i class="fa fa-edit fa-lg"></i> Entry</a></li>

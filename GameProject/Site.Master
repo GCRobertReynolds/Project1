@@ -41,8 +41,8 @@ File Description: standard behaviour (layout) for all pages in application --%>
 
     </form>
     <!-- JavaScript Section -->
-    <script src="Scripts/jquery-2.2.3.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/app.js"></script>
+    <script src="/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/app.js"></script>
 </body>
 </html>

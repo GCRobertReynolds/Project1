@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 //Using statements that are required to connect to Entity Framework Database
 using GameProject.Models;
 using System.Web.ModelBinding;
+using System.Linq.Dynamic;
 
 namespace GameProject
 {
@@ -27,7 +28,7 @@ namespace GameProject
             string GameTitle = Request.QueryString["GameTitle"];
 
             //Connect to the Entity Framework Database
-            using (DefaultConnection db = new DefaultConnection())
+            using (DefaultContext db = new DefaultContext())
             {
                 //Populate a game object instance with the GameID from the URL Param
                 GameInfo updatedGame = (from GameInfo in db.GameInfoes
@@ -74,7 +75,7 @@ namespace GameProject
         protected void SaveButton_Click(object sender, EventArgs e)
         {
             //Use Entity Framework to connect to the server
-            using (DefaultConnection db = new DefaultConnection())
+            using (DefaultContext db = new DefaultContext())
             {
                 //Use the Game model to create a new game object
                 //and save a new record

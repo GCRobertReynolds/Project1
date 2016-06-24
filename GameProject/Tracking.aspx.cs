@@ -39,7 +39,7 @@ namespace GameProject
         protected void GetGames()
         {
             //Connect to Entity Framework
-            using (DefaultConnection db = new DefaultConnection())
+            using (DefaultContext db = new DefaultContext())
             {
                 string SortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
                 //Query the Games Table using Entity Framework and LINQ
@@ -74,7 +74,7 @@ namespace GameProject
             string GameTitle = Convert.ToString(GamesGridView.DataKeys[selectedRow].Values["GameTitle"]);
 
             //Use the Entity Framework to find the selected game in the database and remove it
-            using (DefaultConnection db = new DefaultConnection())
+            using (DefaultContext db = new DefaultContext())
             {
                 //Create object of game class and store the query string inside of it
                 GameInfo deletedGame = (from GameInfo in db.GameInfoes

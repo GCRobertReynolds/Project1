@@ -13,10 +13,10 @@ namespace GameProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DefaultConnection : DbContext
+    public partial class DefaultContext : DbContext
     {
-        public DefaultConnection()
-            : base("name=DefaultConnection")
+        public DefaultContext()
+            : base("name=DefaultContext")
         {
         }
     
